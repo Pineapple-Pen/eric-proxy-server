@@ -4,7 +4,12 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT;
 
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+const clientBundles = './public/microservices';
+const serverBundles = './templates/services';
+const serviceConfig = require('./service-config.json');
+
 
 app.get('/', (req, res) => {
   res.redirect('/restaurants/0/');
