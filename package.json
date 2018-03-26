@@ -1,0 +1,16 @@
+{
+  "name": "eric-proxy-server",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "server": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Eric Sandoval",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "nodemon": "^1.17.2",
+    "request": "^2.83.0"
+  }
+}
