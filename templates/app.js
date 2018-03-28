@@ -1,6 +1,15 @@
-module.exports = (Photos, Overview, Sidebar, Recommendations) => `
-  <div id="Photos">${Photos}</div>
-  <div id="Overview">${Overview}</div>
-  <div id="Sidebar">${Sidebar}</div>
-  <div id="Recommendations">${Recommendations}</div>
-`;
+module.exports = (Photos, Recommendations) => `
+  <div id="container">
+    <div id="Photos">${Photos}</div>
+    <div id="middle">
+      <div id="overview-app"></div>
+      <div id="sidebar-app"></div>
+    </div>
+    <div id="recommendations-app">
+      <div id="Recommendations">${Recommendations}</div>
+    </div>
+  </div>
+  `;
+  
+  // <div id="Overview">${Overview}</div>
+  // <div id="Sidebar">${Sidebar}</div>
