@@ -7,6 +7,10 @@ const port = process.env.PORT;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+if (!global.window) {
+  global.window = new Object();
+}
+
 const clientBundles = './public/microservices';
 const serverBundles = './templates/microservices';
 const serviceConfig = require('./service-config.js');
@@ -32,7 +36,7 @@ app.get('/restaurants/:id', (req, res) => {
   res.end(Layout(
     'Pineapple Pen',
     App(...components),
-    Scripts(Object.keys(microservices)),
+    Scripts(Object.keys(microservices), req.params.id ),
   ));
 });
 
@@ -51,9 +55,9 @@ app.get('/', (req, res) => {
 // app.get('/api/restaurants/:id/sidebar', (req, res) => {
 //   res.redirect(`${process.env.SIDEBAR}/api/restaurants/${req.params.id}/sidebar`)
 // });
-// app.get('/api/restaurants/:id/recommendations', (req, res) => {
-//   res.redirect(`${process.env.RECOMMENDATIONS}/api/restaurants/${req.params.id}/recommendations`)
-// });
+app.get('/api/restaurants/:id/recommendations', (req, res) => {
+  res.redirect(`${process.env.RECOMMENDATIONS}/api/restaurants/${req.params.id}/recommendations`)
+});
 
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);

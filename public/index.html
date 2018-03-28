@@ -15,11 +15,29 @@
         <div id="overview-app"></div>
         <div id="sidebar-app"></div>
       </div>
-      <div id="recommendations-app"></div>
+      <div id="recommendations-app" id="Recommendations"></div>
     </div>
-    <script src="http://10.8.65.181:3004/restaurants/id/bundle.js"></script>
+  <script src="http://10.8.65.181:3004/restaurants/id/bundle.js"></script>
   <script src="http://10.8.65.173:3002/restaurants/id/bundle.js"></script>
   <script src="http://10.8.65.25:3003/restaurants/id/bundle.js"></script>
   <script src="http://10.8.65.219:3001/restaurants/id/bundle.js"></script>
+  <script>
+    ReactDOM.render(
+      React.createElement(Photos),
+      document.getElementById('gallery-app')
+    );
+    ReactDOM.render(
+      React.createElement(Overview),
+      document.getElementById('overview-app')
+    );
+    ReactDOM.render(
+      React.createElement(Sidebar),
+      document.getElementById('sidebar-app')
+    );
+    ReactDOM.render(
+      React.createElement(Recommendations),
+      document.getElementById('recommendations-app')
+    );
+  </script>
   </body>
 </html>
