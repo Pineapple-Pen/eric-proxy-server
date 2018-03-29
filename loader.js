@@ -9,7 +9,7 @@ const loadBundle = (cache, item, filename) => {
   setTimeout(() => {
     console.log('Loading: ', filename);
     cache[item] = require(filename).default;
-  }, 0);
+  }, 5);
 };
 
 const fetchBundles = (path, microservices, suffix = '', require = false) => {
