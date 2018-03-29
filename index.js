@@ -16,8 +16,6 @@ const serverBundles = './templates/microservices';
 const serviceConfig = require('./service-config.js');
 const microservices = require('./loader.js')(clientBundles, serverBundles, serviceConfig);
 
-console.log(microservices);
-
 const React = require('react');
 const ReactDOM = require('react-dom/server');
 const Layout = require('./templates/layout.js');
@@ -33,16 +31,17 @@ const renderComponents = (components, props = {}) => {
 
 app.get('/restaurants/:id', (req, res) => {
   const components = renderComponents(microservices, { id: req.params.id });
+  console.log(components);
   res.end(Layout(
     'Pineapple Pen',
-    App(...components),
+    App(components),
     Scripts(Object.keys(microservices), req.params.id ),
   ));
 });
 
-app.get('/', (req, res) => {
-  res.redirect('/restaurants/0/');
-});
+// app.get('/', (req, res) => {
+//   res.redirect('/restaurants/0/');
+// });
 
 // app.use('/restaurants/:id', express.static(path.join(__dirname, 'public')));
 
